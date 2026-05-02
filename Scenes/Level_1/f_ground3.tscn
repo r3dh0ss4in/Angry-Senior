@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://tgmhnkibhmrm"]
+
+[ext_resource type="Script" uid="uid://b53f540vptmtj" path="res://Scripts/f_ground_3.gd" id="1_r4x0d"]
+[ext_resource type="Texture2D" uid="uid://b6m0fm8161abj" path="res://Level_1/Ground/metalHalfMid.png" id="2_s6jo4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3lfg"]
+size = Vector2(31, 12)
+
+[node name="f_ground" type="AnimatableBody2D" unique_id=1910996873]
+collision_layer = 2
+script = ExtResource("1_r4x0d")
+
+[node name="MetalHalfMid" type="Sprite2D" parent="." unique_id=714809198]
+position = Vector2(5.3749995, 5.9999995)
+scale = Vector2(0.6944444, 0.44444445)
+texture = ExtResource("2_s6jo4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=587570478]
+position = Vector2(5.5, 2)
+shape = SubResource("RectangleShape2D_y3lfg")
