@@ -18,6 +18,15 @@
 [ext_resource type="PackedScene" uid="uid://bvdynngkngch1" path="res://Scenes/Level_1/f_ground.tscn" id="16_sq2ps"]
 [ext_resource type="PackedScene" uid="uid://o1gxpn7au67v" path="res://Scenes/Level_1/f_ground2.tscn" id="17_76bp3"]
 [ext_resource type="PackedScene" uid="uid://tgmhnkibhmrm" path="res://Scenes/Level_1/f_ground3.tscn" id="18_8f1y5"]
+[ext_resource type="PackedScene" uid="uid://dpu4tp7b6lj8k" path="res://Scenes/Enemies/g_traps.tscn" id="19_do462"]
+[ext_resource type="Script" uid="uid://bkeut2dntt5sv" path="res://Scenes/Level_1/progress_bar.gd" id="20_8j2y8"]
+[ext_resource type="PackedScene" uid="uid://swk2755a54co" path="res://Scenes/n_fall.tscn" id="20_qyy3c"]
+[ext_resource type="PackedScene" uid="uid://c60fhe7yfnimr" path="res://Scenes/life.tscn" id="22_gy3ph"]
+[ext_resource type="PackedScene" uid="uid://5m2u82on3lfr" path="res://Scenes/life15.tscn" id="23_egbi8"]
+[ext_resource type="Script" uid="uid://bm8s4py1lhs8u" path="res://Scripts/life.gd" id="24_pvu6e"]
+[ext_resource type="PackedScene" uid="uid://eyn4gg84mruv" path="res://Scenes/life20.tscn" id="25_pnlyx"]
+[ext_resource type="PackedScene" uid="uid://dq0yva0lignpy" path="res://Scenes/Enemies/ew.tscn" id="26_pnlyx"]
+[ext_resource type="PackedScene" uid="uid://dtgxbc5n73g5n" path="res://Scenes/Enemies/zom_area.tscn" id="27_y323e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_do462"]
 texture = ExtResource("4_ow4jh")
@@ -124,6 +133,7 @@ texture_region_size = Vector2i(45, 45)
 texture = ExtResource("9_8f1y5")
 texture_region_size = Vector2i(45, 45)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22.5, -22.5, 22.5, -22.5, 22.5, 22.5, -22.5, -7.9026356)
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
@@ -131,6 +141,7 @@ texture_region_size = Vector2i(45, 45)
 [sub_resource type="TileSet" id="TileSet_eex5v"]
 tile_size = Vector2i(45, 45)
 physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 9
 sources/0 = SubResource("TileSetAtlasSource_do462")
 sources/1 = SubResource("TileSetAtlasSource_8j2y8")
 sources/2 = SubResource("TileSetAtlasSource_niq18")
@@ -162,14 +173,127 @@ modulate = Color(1, 1, 1, 0.81960785)
 tile_map_data = PackedByteArray("AAAAAA0AAAAAAAAAAAABAA0AAAAAAAAAAAACAA0AAAAAAAAAAAADAA0AAAAAAAAAAAAEAA0AAAAAAAAAAAAEAAwAAAAAAAAAAAAFAAwAAAAAAAAAAAAFAA0AAAAAAAAAAAADAAwACAAAAAAAAAAAAAoAAAAAAAAAAAABAAoAAAAAAAAAAAACAAoAAAAAAAAAAAADAAoADAAAAAAAAAADAAkAAAAAAAAAAAACAAkAAAAAAAAAAAABAAkAAAAAAAAAAAAAAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAHAA0AAAAAAAAAAAAIAA0AAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAJAA0AAAAAAAAAAAALAA0AAAAAAAAAAAAMAA0AAAAAAAAAAAAMAAwAAAAAAAAAAAAMAAsAAAAAAAAAAAALAAoACQAAAAAAAAAMAAoAAAAAAAAAAAAMAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAAJAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAYAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAACAAMAAAAAAAAAAAACAAIAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAQAAAAAAAAAAAAQAA0AAAAAAAAAAAAAAAwADQAAAAAAAAAAAAsADQAAAAAAAAAAAAgAAAAAAAAAAAAFAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAACAAcAAAAAAAAAAAAEAAYACAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAARAA0AAAAAAAAAAAASAA0AAAAAAAAAAAAUAA0AAAAAAAAAAAAZAAAAAAAAAAAAAAAZAAEAAAAAAAAAAAAZAAIAAAAAAAAAAAAZAAMAAAAAAAAAAAAZAAQAAAAAAAAAAAAZAAUAAAAAAAAAAAAZAAYAAAAAAAAAAAAZAAcAAAAAAAAAAAAZAAgAAAAAAAAAAAAZAAkAAAAAAAAAAAAZAAoAAAAAAAAAAAAZAAsAAAAAAAAAAAAZAAwAAAAAAAAAAAAZAA0AAAAAAAAAAAAYAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAATAAAAAAAAAAAAAAASAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAANAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAAPAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAARAAYAAAAAAAAAAAASAAYAAAAAAAAAAAATAAYAAAAAAAAAAAARAAMAAAAAAAAAAAASAAMAAAAAAAAAAAATAAMAAAAAAAAAAAAUAAMAAAAAAAAAAAAVAAMAAAAAAAAAAAAWAAMAAAAAAAAAAAAXAAMAAAAAAAAAAAAYAAMAAAAAAAAAAAARAAgAAAAAAAAAAAASAAgAAAAAAAAAAAATAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAVAAgAAAAAAAAAAAAWAAgAAAAAAAAAAAAWAAkAAAAAAAAAAAAVAAkAAAAAAAAAAAAUAAkAAAAAAAAAAAATAAkAAAAAAAAAAAASAAkAAAAAAAAAAAARAAkAAAAAAAAAAAAVAA0AAAAAAAAAAAAWAA0AAAAAAAAAAAAWAAwAAAAAAAAAAAAXAAwAAAAAAAAAAAAXAA0AAAAAAAAAAAANAAUAAAAAAAAAAAAQAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAARAAoAAAAAAAAAAAAQAAkAAAAAAAAAAAAPAA0AAAAAAAAAAAAQAAsAAAAAAAAAAAAOAAUAAAAAAAAAAAALAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAEAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAAUAAYAAAAAAAAAAAAVAAYAAAAAAAAAAAAVAAUAAAAAAAAAAAAWAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_eex5v")
 
-[node name="Farena" parent="." unique_id=1463518258 instance=ExtResource("15_3n0j3")]
-position = Vector2(629, 210)
-
 [node name="F_Ground" parent="." unique_id=292670969 instance=ExtResource("16_sq2ps")]
 position = Vector2(64, 304)
 
-[node name="f_ground" parent="." unique_id=1910996873 instance=ExtResource("17_76bp3")]
+[node name="f_ground3" parent="." unique_id=1910996873 instance=ExtResource("17_76bp3")]
 position = Vector2(597, 410)
 
 [node name="f_ground2" parent="." unique_id=686601160 instance=ExtResource("18_8f1y5")]
 position = Vector2(1096, 596)
+
+[node name="Farena" parent="." unique_id=1952935816 instance=ExtResource("15_3n0j3")]
+position = Vector2(62, 565)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=935836073]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer2" unique_id=1406743322 node_paths=PackedStringArray("player")]
+modulate = Color(0.94509804, 0.11372549, 0, 1)
+offset_left = 1016.0
+offset_right = 1122.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 29
+value = 100.0
+script = ExtResource("20_8j2y8")
+player = NodePath("../../Farena")
+
+[node name="nfall" type="Node" parent="." unique_id=1677522222]
+
+[node name="n_fall" parent="nfall" unique_id=1862264646 instance=ExtResource("20_qyy3c")]
+position = Vector2(288, 625)
+collision_layer = 2
+
+[node name="n_fall2" parent="nfall" unique_id=1681386953 instance=ExtResource("20_qyy3c")]
+position = Vector2(64, 14)
+collision_layer = 2
+
+[node name="n_fall3" parent="nfall" unique_id=1084609292 instance=ExtResource("20_qyy3c")]
+position = Vector2(1097, 608)
+collision_layer = 2
+
+[node name="n_fall4" parent="nfall" unique_id=1007254755 instance=ExtResource("20_qyy3c")]
+position = Vector2(873, 632)
+collision_layer = 2
+
+[node name="n_fall5" parent="nfall" unique_id=1121816688 instance=ExtResource("20_qyy3c")]
+position = Vector2(647, 632)
+collision_layer = 2
+
+[node name="n_fall6" parent="nfall" unique_id=369622591 instance=ExtResource("20_qyy3c")]
+position = Vector2(603, 632)
+collision_layer = 2
+
+[node name="n_fall7" parent="nfall" unique_id=17046320 instance=ExtResource("20_qyy3c")]
+position = Vector2(468, 632)
+collision_layer = 2
+
+[node name="Ground_Traps" type="Node" parent="." unique_id=307995893]
+
+[node name="G_Traps" parent="Ground_Traps" unique_id=953218865 instance=ExtResource("19_do462")]
+position = Vector2(278, 613)
+
+[node name="G_Traps3" parent="Ground_Traps" unique_id=1983961516 instance=ExtResource("19_do462")]
+position = Vector2(82, 28)
+rotation = -3.1415925
+
+[node name="G_Traps4" parent="Ground_Traps" unique_id=1941699638 instance=ExtResource("19_do462")]
+position = Vector2(1088, 596)
+
+[node name="G_Traps5" parent="Ground_Traps" unique_id=1393097252 instance=ExtResource("19_do462")]
+position = Vector2(863, 620)
+
+[node name="G_Traps6" parent="Ground_Traps" unique_id=379945060 instance=ExtResource("19_do462")]
+position = Vector2(638, 620)
+
+[node name="G_Traps7" parent="Ground_Traps" unique_id=1170706456 instance=ExtResource("19_do462")]
+position = Vector2(593, 620)
+
+[node name="G_Traps8" parent="Ground_Traps" unique_id=1149707021 instance=ExtResource("19_do462")]
+position = Vector2(458, 620)
+
+[node name="Life4" type="Node" parent="." unique_id=1153049622]
+
+[node name="Life" parent="Life4" unique_id=1506257161 instance=ExtResource("22_gy3ph")]
+position = Vector2(61, 380)
+
+[node name="Life2" parent="Life4" unique_id=1811252791 instance=ExtResource("22_gy3ph")]
+position = Vector2(613, 569)
+
+[node name="Life3" parent="Life4" unique_id=158277022 instance=ExtResource("22_gy3ph")]
+position = Vector2(248, 79)
+
+[node name="Life15" parent="Life4" unique_id=48978388 instance=ExtResource("23_egbi8")]
+position = Vector2(855, 338)
+
+[node name="Life15_2" parent="Life4" unique_id=1159350674 instance=ExtResource("23_egbi8")]
+position = Vector2(335, 68)
+script = ExtResource("24_pvu6e")
+
+[node name="Life20" parent="Life4" unique_id=1737040697 instance=ExtResource("25_pnlyx")]
+position = Vector2(896, 469)
+
+[node name="EW" parent="." unique_id=1244754704 instance=ExtResource("26_pnlyx")]
+position = Vector2(329, 475)
+
+[node name="EW2" parent="." unique_id=1577116909 instance=ExtResource("26_pnlyx")]
+position = Vector2(183, 160)
+
+[node name="EW3" parent="." unique_id=966134308 instance=ExtResource("26_pnlyx")]
+position = Vector2(833, 340)
+
+[node name="Zom_Area" parent="." unique_id=799587874 instance=ExtResource("27_y323e")]
+position = Vector2(224, 553)
+
+[connection signal="body_entered" from="Ground_Traps/G_Traps" to="Farena" method="_on_g_traps_body_entered"]
+[connection signal="body_entered" from="Ground_Traps/G_Traps3" to="Farena" method="_on_g_traps_body_entered"]
+[connection signal="body_entered" from="Ground_Traps/G_Traps4" to="Farena" method="_on_g_traps_body_entered"]
+[connection signal="body_entered" from="Ground_Traps/G_Traps5" to="Farena" method="_on_g_traps_body_entered"]
+[connection signal="body_entered" from="Ground_Traps/G_Traps6" to="Farena" method="_on_g_traps_body_entered"]
+[connection signal="body_entered" from="Ground_Traps/G_Traps7" to="Farena" method="_on_g_traps_body_entered"]
+[connection signal="body_entered" from="Ground_Traps/G_Traps8" to="Farena" method="_on_g_traps_body_entered"]
+[connection signal="body_entered" from="Life4/Life" to="Farena" method="_on_life_body_entered"]
+[connection signal="body_entered" from="Life4/Life2" to="Farena" method="_on_life_body_entered"]
+[connection signal="body_entered" from="Life4/Life3" to="Farena" method="_on_life_body_entered"]
+[connection signal="body_entered" from="Life4/Life15" to="Farena" method="_on_life_15_body_entered"]
+[connection signal="body_entered" from="Life4/Life15_2" to="Farena" method="_on_life_15_body_entered"]
+[connection signal="body_entered" from="Life4/Life20" to="Farena" method="_on_life_20_body_entered"]

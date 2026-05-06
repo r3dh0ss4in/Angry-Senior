@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dq0yva0lignpy"]
+
+[ext_resource type="Script" uid="uid://t7qfl3yvhpnq" path="res://Scripts/ew.gd" id="1_mw7bj"]
+[ext_resource type="Texture2D" uid="uid://ct255owkmns1y" path="res://Enemies/wapon.png" id="2_mw7bj"]
+[ext_resource type="PackedScene" uid="uid://dbkvtsn4o5tqx" path="res://Scenes/Enemies/ew_coll.tscn" id="3_hbsym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw7bj"]
+size = Vector2(120, 20)
+
+[node name="EW" type="Area2D" unique_id=1244754704]
+collision_layer = 4
+script = ExtResource("1_mw7bj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1002280055]
+position = Vector2(60, 10)
+shape = SubResource("RectangleShape2D_mw7bj")
+
+[node name="ShootPoint" type="Marker2D" parent="." unique_id=1904012832]
+unique_name_in_owner = true
+position = Vector2(60, 5)
+
+[node name="Shoot_Timer" type="Timer" parent="." unique_id=1158601921]
+wait_time = 0.3
+autostart = true
+
+[node name="Wapon" type="Sprite2D" parent="." unique_id=982953064]
+position = Vector2(114, 9)
+scale = Vector2(0.042307694, 0.0425)
+texture = ExtResource("2_mw7bj")
+
+[node name="ew_coll" parent="." unique_id=153685973 instance=ExtResource("3_hbsym")]
+position = Vector2(113, 10)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Shoot_Timer" to="." method="_on_shoot_timer_timeout"]

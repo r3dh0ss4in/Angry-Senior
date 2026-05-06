@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://q5sl55g6aian"]
+
+[ext_resource type="Texture2D" uid="uid://ck4cxbjqivtis" path="res://Main/rd_bg.jpg" id="1_5f5xv"]
+
+[node name="Pause" type="Control" unique_id=1009330606]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0020001
+offset_bottom = -0.29608154
+
+[node name="RdBg" type="Sprite2D" parent="." unique_id=688143496]
+position = Vector2(578.5, 327.5)
+scale = Vector2(0.50507814, 0.446875)
+texture = ExtResource("1_5f5xv")

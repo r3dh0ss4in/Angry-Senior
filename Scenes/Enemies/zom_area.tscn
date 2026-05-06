@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dtgxbc5n73g5n"]
+
+[ext_resource type="Texture2D" uid="uid://3wf4byud0bpk" path="res://Enemies/horror_tree.png" id="1_8h3ds"]
+[ext_resource type="Script" uid="uid://d1xr70vy5yl6q" path="res://Scenes/Enemies/zom_area.gd" id="1_xw1o2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw1o2"]
+size = Vector2(192, 56)
+
+[node name="Zom_Area" type="Area2D" unique_id=799587874]
+script = ExtResource("1_xw1o2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112657021]
+position = Vector2(127, 4)
+shape = SubResource("RectangleShape2D_xw1o2")
+
+[node name="ZomPoint" type="Marker2D" parent="." unique_id=899697726]
+unique_name_in_owner = true
+position = Vector2(214, 25)
+
+[node name="HorrorTree" type="Sprite2D" parent="." unique_id=1744741325]
+position = Vector2(214, 15)
+scale = Vector2(0.053417966, 0.06416016)
+texture = ExtResource("1_8h3ds")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

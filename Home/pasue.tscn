@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://oo353o37k8hh"]
+
+[ext_resource type="Script" uid="uid://cfy7hvw67dvtr" path="res://Scripts/pasue.gd" id="1_bmtuj"]
+[ext_resource type="Texture2D" uid="uid://ck4cxbjqivtis" path="res://Main/rd_bg.jpg" id="2_6okxs"]
+[ext_resource type="FontFile" uid="uid://56ms8pldnvt3" path="res://Home/Cause-Bold.ttf" id="5_81fc0"]
+
+[node name="Pause" type="Control" unique_id=938424183]
+layout_mode = 3
+anchor_right = 1.001
+anchor_bottom = 1.0
+offset_right = -0.15209961
+offset_bottom = 1.0
+script = ExtResource("1_bmtuj")
+
+[node name="RdBg" type="Sprite2D" parent="." unique_id=1039656069]
+position = Vector2(572.99994, 338.5)
+scale = Vector2(0.5124999, 0.45437497)
+texture = ExtResource("2_6okxs")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=415105477]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 649.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1422226320]
+layout_mode = 2
+
+[node name="Reasume" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1907489792]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_81fc0")
+theme_override_font_sizes/font_size = 60
+text = "Reasume"
+
+[node name="Restart" type="Button" parent="CenterContainer/VBoxContainer" unique_id=701770027]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_81fc0")
+theme_override_font_sizes/font_size = 60
+text = "Restart"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2018537704]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_81fc0")
+theme_override_font_sizes/font_size = 60
+text = "Quit"

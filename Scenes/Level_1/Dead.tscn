@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://d3k55ch2q7u27"]
+
+[ext_resource type="Script" uid="uid://blx0l61vf376h" path="res://Scripts/dead.gd" id="1_wpq7m"]
+[ext_resource type="Texture2D" uid="uid://ck4cxbjqivtis" path="res://Main/rd_bg.jpg" id="2_174j2"]
+[ext_resource type="Texture2D" uid="uid://cvuabsllfk45f" path="res://Main/spr_stand.png" id="3_pxdfg"]
+[ext_resource type="Texture2D" uid="uid://dyre8ka24lbf0" path="res://Farena/Idle (1).png" id="4_duwmn"]
+[ext_resource type="FontFile" uid="uid://56ms8pldnvt3" path="res://Home/Cause-Bold.ttf" id="5_26cmj"]
+
+[node name="Dead" type="Control" unique_id=938424183]
+layout_mode = 3
+anchor_right = 1.001
+anchor_bottom = 1.0
+offset_right = -0.15209961
+offset_bottom = 1.0
+script = ExtResource("1_wpq7m")
+
+[node name="RdBg" type="Sprite2D" parent="." unique_id=1039656069]
+position = Vector2(572.99994, 338.5)
+scale = Vector2(0.5124999, 0.45437497)
+texture = ExtResource("2_174j2")
+
+[node name="SprStand" type="Sprite2D" parent="." unique_id=1762282239]
+modulate = Color(1, 1, 1, 0.6117647)
+position = Vector2(250, 399)
+scale = Vector2(0.6145833, 0.6650391)
+texture = ExtResource("3_pxdfg")
+
+[node name="Idle(1)" type="Sprite2D" parent="." unique_id=1030575570]
+modulate = Color(1, 1, 1, 0.6117647)
+position = Vector2(947, 410.00003)
+scale = Vector2(0.90476197, 1.0341727)
+texture = ExtResource("4_duwmn")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=415105477]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 649.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1422226320]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1907489792]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_26cmj")
+theme_override_font_sizes/font_size = 60
+text = "Restart"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2018537704]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_26cmj")
+theme_override_font_sizes/font_size = 60
+text = "Quit"

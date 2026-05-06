@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dpu4tp7b6lj8k"]
+
+[ext_resource type="Texture2D" uid="uid://mqe4pn7etnis" path="res://Enemies/G_Trap.png" id="1_526pc"]
+[ext_resource type="Script" uid="uid://csumyqe1ngtnm" path="res://Scripts/g_traps.gd" id="1_sm6l3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm6l3"]
+size = Vector2(45.00001, 38)
+
+[node name="G_Traps" type="Area2D" unique_id=953218865]
+script = ExtResource("1_sm6l3")
+
+[node name="GTrap" type="Sprite2D" parent="." unique_id=323082620]
+position = Vector2(16, 6.999998)
+scale = Vector2(0.3333333, 0.72888887)
+texture = ExtResource("1_526pc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377017813]
+position = Vector2(14.499998, 9.000002)
+scale = Vector2(0.9999998, 0.9999999)
+shape = SubResource("RectangleShape2D_sm6l3")

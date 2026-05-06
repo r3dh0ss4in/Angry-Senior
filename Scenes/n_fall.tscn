@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://swk2755a54co"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akrys"]
+size = Vector2(30, 26)
+
+[node name="n_fall" type="StaticBody2D" unique_id=1862264646]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=905293787]
+light_mask = 2
+position = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_akrys")

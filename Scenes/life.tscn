@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c60fhe7yfnimr"]
+
+[ext_resource type="Texture2D" uid="uid://dyre8ka24lbf0" path="res://Farena/Idle (1).png" id="1_0613k"]
+[ext_resource type="Script" uid="uid://bm8s4py1lhs8u" path="res://Scripts/life.gd" id="1_wvhb1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvhb1"]
+
+[node name="Life" type="Area2D" unique_id=1506257161]
+script = ExtResource("1_wvhb1")
+
+[node name="Idle(1)" type="Sprite2D" parent="." unique_id=931234905]
+position = Vector2(1.4999993, -1)
+scale = Vector2(0.054673716, 0.064748205)
+texture = ExtResource("1_0613k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=455602433]
+shape = SubResource("CapsuleShape2D_wvhb1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
